@@ -74,10 +74,10 @@
                var repwd = this.repwd;
                var self = this;
                if (name == '' || pwd == '' || repwd == '') {
-                   this.errinfo = '填寫信息不完整';
+                   this.errinfo = '填写信息不完整！';
                    this.classFade = ''
                } else if (pwd != repwd) {
-                   this.errinfo = '二次密碼不壹致';
+                   this.errinfo = '两次密码不一致！';
                    this.classFade = ''
                } else {                   
                    	axios({
@@ -97,7 +97,7 @@
                            }
                        }
                        if (flag == 'Exist') {
-                           self.errinfo = '用戶名已被註冊';
+                           self.errinfo = '用户名已被注册！';
                            self.classFade = ''
                        } else if (flag == 'noExist') {
                         axios({
@@ -110,25 +110,25 @@
                                 timeout: 3000
                               }).then(function(response){
                                if (response.status == 200) {
-                                   self.errinfo = '註冊成功，歡迎妳，'+ name;
+                                   self.errinfo = '注册成功，欢迎你！，'+ name;
                                    self.classFade = ''
                                 //    setCookie.getInfo(this.userName,this.pwd);
                                 //    setCookie.userLogin();
                                    setTimeout("window.location.href = './#/login'",2000)
                                } else {
-                                   self.errinfo = '註冊失敗，未知的錯誤';
+                                   self.errinfo = '注册失败，未知的错误！';
                                    self.classFade = ''
                                }
                            }).catch(function(error) {
                                     console.log(error);
                                     self.classFade = '';
-                                    self.errinfo = '服務器繁忙，請刷新頁面或者稍後重試!(Error code: 504)'
+                                    self.errinfo = '服务器繁忙，请刷新服务器或稍后重试！(Error code: 504)'
                            });
                        }
                    }).catch(function(error) {
                         console.log(error);
                         self.classFade = '';
-                        self.errinfo = '服務器繁忙，請刷新頁面或者稍後重試!(Error code: 504)'
+                        self.errinfo = '服务器繁忙，请刷新服务器或稍后重试！(Error code: 504)'
                     });
                }
            },
